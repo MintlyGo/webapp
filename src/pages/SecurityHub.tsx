@@ -100,7 +100,7 @@ export default function SecurityHub() {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Licensed Institution</h3>
                     <p className="text-gray-600">
-                      Registered with FinCEN and regulated by NYSDFS as a licensed trust company
+                      We are actively working on obtaining all necessary regulatory approvals to serve bests
                     </p>
                   </div>
                 </div>
@@ -159,19 +159,19 @@ export default function SecurityHub() {
               <CardContent className="p-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4">Insurance Coverage</h3>
+                    <h3 className="text-2xl font-semibold mb-4">Security Measures</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center text-gray-600">
                         <Shield className="h-5 w-5 text-primary-600 mr-3" />
-                        Crime insurance policy up to $250M
+                        Advanced security infrastructure
                       </li>
                       <li className="flex items-center text-gray-600">
                         <Shield className="h-5 w-5 text-primary-600 mr-3" />
-                        Coverage for digital asset theft
+                        Multi-signature authorization system
                       </li>
                       <li className="flex items-center text-gray-600">
                         <Shield className="h-5 w-5 text-primary-600 mr-3" />
-                        Protection against cyber attacks
+                        Continuous security monitoring 
                       </li>
                     </ul>
                   </div>

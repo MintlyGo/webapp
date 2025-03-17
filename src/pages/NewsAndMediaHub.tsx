@@ -1,6 +1,18 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Newspaper, TrendingUp, Award, Globe, Megaphone, Calendar, ArrowRight, ExternalLink, BookOpen } from "lucide-react";
 
+// Custom X (Twitter) icon component
+const XIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    className="w-6 h-6 text-white"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1567 12.8955L4 20.0264H5.38119L10.7775 13.7878L15.0678 20.0264H19.7297L13.3171 10.7749H13.3174ZM11.4789 12.9738L10.8506 12.0881L5.87244 5.07295H8.00119L12.0351 10.8611L12.6633 11.7467L17.8894 19.0378H15.7607L11.4789 12.9741V12.9738Z" />
+  </svg>
+);
+
 export default function Newsroom() {
   return (
     <div className="min-h-screen bg-white">
@@ -15,6 +27,87 @@ export default function Newsroom() {
             <p className="text-xl text-gray-200 mb-12">
               Your central destination for MintlyGo updates, press resources, and company developments.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Social Media Connect Section */}
+      <div className="py-16 bg-gradient-to-b from-primary-800/5 to-transparent">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8">Connect With Us</h2>
+            <p className="text-lg text-gray-600 text-center mb-12">
+              Stay updated with the latest news and announcements through our social channels
+            </p>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* X (Twitter) Card */}
+              <a 
+                href="https://x.com/mintlygo" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-primary-600/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <Card className="border-0 shadow-lg bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <CardContent className="p-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="h-14 w-14 bg-black rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                        <XIcon />
+                      </div>
+                      <div className="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-black/5 transition-colors duration-300">
+                        <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-primary-600 transition-colors" />
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Follow us on X</h3>
+                    <p className="text-gray-600 mb-6">
+                      Get real-time updates, announcements, and engage with our community
+                    </p>
+                    <div className="flex items-center text-sm">
+                      <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors">@mintlygo</span>
+                      <div className="ml-2 h-px w-12 bg-primary-600/30 group-hover:w-24 transition-all duration-300"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+
+              {/* Telegram Card */}
+              <a 
+                href="https://t.me/mintlygo" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#229ED9]/20 to-blue-500/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <Card className="border-0 shadow-lg bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#229ED9]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <CardContent className="p-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="h-14 w-14 bg-[#229ED9] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                        <svg 
+                          viewBox="0 0 24 24" 
+                          className="w-7 h-7 text-white"
+                          fill="currentColor"
+                        >
+                          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                        </svg>
+                      </div>
+                      <div className="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#229ED9]/5 transition-colors duration-300">
+                        <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-[#229ED9] transition-colors" />
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#229ED9] to-blue-500">Join our Telegram</h3>
+                    <p className="text-gray-600 mb-6">
+                      Be part of our vibrant community and receive instant updates
+                    </p>
+                    <div className="flex items-center text-sm">
+                      <span className="text-[#229ED9] font-medium group-hover:text-blue-600 transition-colors">t.me/mintlygo</span>
+                      <div className="ml-2 h-px w-12 bg-[#229ED9]/30 group-hover:w-24 transition-all duration-300"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            </div>
           </div>
         </div>
       </div>
