@@ -4,6 +4,7 @@ import realTime from "../assets/real-time-exchange-rates.png";
 import rewards from "../assets/crypto-wallet.png";
 import creditCardVisa from "../assets/final_credit_card_prev_ui.png";
 import { Sparkles, Shield, Wallet, ArrowRight, CreditCard } from "lucide-react";
+import Footer from "../components/custom/Footer";
 
 const GuestHome = () => {
   return (
@@ -189,87 +190,7 @@ const GuestHome = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-800 text-gray-200 p-4 md:px-10">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8 p-6">
-          <div className="flex flex-col items-center md:items-start">
-            <h1 className="text-3xl font-bold text-white">MintlyGo</h1>
-            <p className="mt-2 text-sm text-gray-400">
-              Simplify your finances, embrace the future.
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-6 md:gap-12 text-center md:text-left">
-            <div>
-              <h2 className="text-lg font-semibold text-white mb-3">
-                Products
-              </h2>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Credit Cards
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Crypto Wallet
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Investments
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-white mb-3">Support</h2>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    FAQs
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-white mb-3">Company</h2>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-green-400">
-                    Privacy Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
-          <p>© 2025 Mintly. All Rights Reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
