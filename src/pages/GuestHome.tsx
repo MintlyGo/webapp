@@ -3,149 +3,194 @@ import secureWallet from "../assets/secure-wallet.png";
 import realTime from "../assets/real-time-exchange-rates.png";
 import rewards from "../assets/crypto-wallet.png";
 import creditCardVisa from "../assets/final_credit_card_prev_ui.png";
+import { Sparkles, Shield, Wallet, ArrowRight, CreditCard } from "lucide-react";
 
 const GuestHome = () => {
   return (
     <div className="guest-home w-full">
-      <section className="hero p-4 md:px-10 h-screen">
-        <div className="container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="hero-content flex flex-col gap-6 px-5">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              <span className="text-primary-800">Revolutionize</span> Your
-              Payments with Crypto!
+      <section className="hero relative min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/30 via-transparent to-primary-900/30"></div>
+        
+        <div className="container relative z-10 mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8">
+          <div className="hero-content flex flex-col gap-8">
+            <div className="inline-block">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 w-fit">
+                <Sparkles className="h-5 w-5 text-[#00ffff]" />
+                <span className="text-white/90">Next-Generation Card</span>
+              </div>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Revolutionize</span>
+              <br /><span className="text-emerald-300">Your Payments with Crypto!</span>
             </h1>
-            <p className="text-base md:text-lg lg:text-xl">
+            <p className="text-lg md:text-xl text-green-800 max-w-xl font-medium">
               Pay your bills with the cryptocurrency of your choice – directly
               from your wallet. No exchanges, no hassles, just seamless
               transactions.
             </p>
-            <div className="hero-cta flex gap-4 items-center">
-              <button className="px-6 py-3 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-800 text-white">
+            <div className="hero-cta flex flex-wrap gap-6 items-center">
+              <button className="group px-8 py-4 text-base rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-600 text-white hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105">
                 Get Your Card Now
+                <ArrowRight className="inline-block ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="#" className="text-sm lg:text-base text-slate-600">
+              <a href="#" className="text-base text-gray-300 hover:text-white transition-colors flex items-center gap-2">
                 Learn More
+                <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
-          <div className="hero-img flex justify-center perspective:1000px">
+          <div className="hero-img relative flex justify-center perspective-1000">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 blur-3xl rounded-full"></div>
             <img
               src={creditCardVisa}
               alt="credit-img"
-              className="max-w-full rounded-lg rotate-[10deg]"
+              className="relative max-w-full rounded-2xl rotate-[10deg] hover:rotate-0 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/30"
             />
           </div>
         </div>
       </section>
 
-      <section className="benefits p-4 md:px-10">
-        <div className="container mx-auto p-6 rounded-xl ">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl  text-center font-bold mb-8 text-primary-800">
-            What We Offer
-          </h1>
+      <section className="benefits py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 mb-6">
+              <Shield className="h-5 w-5 text-primary-600" />
+              <span className="text-primary-800 font-medium">What We Offer</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Experience the Future of <span className="text-primary-600">Payments</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Unlock a world of possibilities with our innovative crypto-powered credit card solution.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 img: instantPayments,
-                title: "Instant Crypto Payments",
+                icon: <CreditCard className="h-6 w-6 text-primary-600" />,
+                title: "Instant Payments",
                 desc: "Enable seamless transactions by paying directly with your preferred cryptocurrency.",
               },
               {
                 img: secureWallet,
+                icon: <Shield className="h-6 w-6 text-primary-600" />,
                 title: "Secure Wallet Integration",
                 desc: "Connect your crypto wallet effortlessly and make payments with complete security and transparency.",
               },
               {
                 img: realTime,
+                icon: <Wallet className="h-6 w-6 text-primary-600" />,
                 title: "Real-Time Exchange Rates",
                 desc: "Get the competitive exchange rates for your crypto in real time. Every transaction is clear and upfront.",
               },
             ].map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg rounded-lg text-center border border-gray-200"
+                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-100"
               >
-                <img
-                  src={benefit.img}
-                  alt={benefit.title}
-                  className="w-24 h-24 md:w-32 md:h-32 object-contain mx-auto mb-4 p-6"
-                />
-                <h2 className="bg-primary-800 text-white font-medium text-md mb-2 py-1">
-                  {benefit.title}
-                </h2>
-                <p className="text-gray-600 text-sm md:text-base p-6 ">
-                  {benefit.desc}
-                </p>
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-primary-100 rounded-2xl transform -rotate-6 group-hover:rotate-3 transition-transform"></div>
+                  <div className="relative bg-white rounded-2xl p-4 flex items-center justify-center">
+                    <img
+                      src={benefit.img}
+                      alt={benefit.title}
+                      className="w-20 h-20 object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 mb-4">
+                  {benefit.icon}
+                  <h3 className="text-xl font-semibold text-gray-900">{benefit.title}</h3>
+                </div>
+                <p className="text-gray-600">{benefit.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="rewards p-4 md:px-10">
-        <div className="container mx-auto p-6 flex flex-col md:flex-row items-center gap-8">
-          <div className="flex-1 flex flex-col gap-6">
-            <h1 className="text-2xl md:text-3xl font-bold text-primary-800">
-              Instant Rewards, Direct to Your Account
-            </h1>
-            <p className="text-base md:text-lg text-gray-700">
-              Earn crypto rewards automatically deposited into your wallet as
-              soon as you make a purchase. Watch your rewards grow and benefit
-              from potential price appreciation.
-            </p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <img
-              src={rewards}
-              alt="rewards"
-              className="max-w-full rounded-lg h-[400px]"
-            />
+      <section className="rewards py-20 bg-gradient-to-br from-primary-50 via-white to-primary-50">
+        <div className="container mx-auto px-8">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100">
+                <Sparkles className="h-5 w-5 text-primary-600" />
+                <span className="text-primary-800 font-medium">Crypto Rewards</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Instant Rewards,
+                <br />
+                <span className="text-primary-600">Direct to Your Account</span>
+              </h2>
+              <p className="text-xl text-gray-600">
+                Earn crypto rewards automatically deposited into your wallet as
+                soon as you make a purchase. Watch your rewards grow and benefit
+                from potential price appreciation.
+              </p>
+              <button className="group px-6 py-3 text-base rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-all duration-300 flex items-center gap-2">
+                Start Earning Now
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+            <div className="flex-1 relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-cyan-500/20 blur-3xl rounded-full"></div>
+              <img
+                src={rewards}
+                alt="rewards"
+                className="relative rounded-2xl shadow-2xl max-w-full hover:transform hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="offer p-6 md:px-12 bg-[#e2f6e3]">
-        <div className="container mx-auto flex flex-col md:flex-row gap-10 p-6">
-          {/* First Section: $100 and New Mintly Customers */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8  p-8 rounded-lg">
-            {/* $100 */}
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-5xl font-extrabold text-primary-800 drop-shadow-md">
-                $100
-              </h1>
-              <p className="text-sm text-gray-500 mt-2">
-                Exclusive offer for first-time customers!
-              </p>
+      <section className="offer py-20 bg-gradient-to-br from-[#e2f6e3] to-white">
+        <div className="container mx-auto px-8">
+          <div className="bg-white rounded-2xl shadow-xl p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent"></div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+              <div className="flex-1 text-center md:text-left space-y-6">
+                <h3 className="text-6xl font-extrabold text-primary-600">
+                  $100
+                </h3>
+                <p className="text-gray-600 text-lg">
+                  Exclusive offer for first-time customers!
+                </p>
+                <div className="space-y-4">
+                  <h2 className="text-3xl font-bold text-gray-900">
+                    New Mintly Customers
+                  </h2>
+                  <p className="text-xl text-gray-600">
+                    Open a Mintly Credit account with qualifying activities.
+                  </p>
+                </div>
+                <button className="group px-8 py-4 text-base rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-all duration-300 flex items-center gap-2 mx-auto md:mx-0">
+                  Apply Now
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+              <div className="flex-1 relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-cyan-500/10 blur-3xl rounded-full"></div>
+                <img
+                  src={creditCardVisa}
+                  alt="credit-card-offer"
+                  className="relative max-w-full rounded-2xl transform hover:scale-105 transition-transform duration-300 shadow-lg"
+                />
+              </div>
             </div>
-            {/* New Mintly Customers */}
-            <div className="flex-1">
-              <h1 className="text-3xl font-semibold text-gray-800">
-                New Mintly Customers
-              </h1>
-              <h4 className="mt-4 text-lg text-gray-600">
-                Open a Mintly Credit account with qualifying activities.
-              </h4>
-              <button className="mt-6 px-5 py-3 bg-primary-600 hover:bg-primary-800 text-white rounded-full text-base shadow-md transition-all">
-                Open Account
-              </button>
-            </div>
-          </div>
-
-          {/* Second Section: Next Steps */}
-          <div className="next-steps flex flex-col  p-6">
-            <h1 className="text-3xl font-semibold mb-4">Next Steps</h1>
-            <ul className="list-decimal list-inside text-gray-700 text-lg space-y-2">
-              <li>Open Credit Account</li>
-              <li>Spend on your Bills</li>
-              <li>Pay using your crypto</li>
-            </ul>
           </div>
         </div>
       </section>
 
       <footer className="bg-gray-800 text-gray-200 p-4 md:px-10">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8 p-6">
-          {/* Company Name and Tagline */}
           <div className="flex flex-col items-center md:items-start">
             <h1 className="text-3xl font-bold text-white">MintlyGo</h1>
             <p className="mt-2 text-sm text-gray-400">
@@ -153,9 +198,7 @@ const GuestHome = () => {
             </p>
           </div>
 
-          {/* Navigation Links */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 text-center md:text-left">
-            {/* Product Links */}
             <div>
               <h2 className="text-lg font-semibold text-white mb-3">
                 Products
@@ -179,7 +222,6 @@ const GuestHome = () => {
               </ul>
             </div>
 
-            {/* Support Links */}
             <div>
               <h2 className="text-lg font-semibold text-white mb-3">Support</h2>
               <ul className="space-y-2">
@@ -201,7 +243,6 @@ const GuestHome = () => {
               </ul>
             </div>
 
-            {/* About Links */}
             <div>
               <h2 className="text-lg font-semibold text-white mb-3">Company</h2>
               <ul className="space-y-2">
@@ -225,7 +266,6 @@ const GuestHome = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
           <p>© 2025 Mintly. All Rights Reserved.</p>
         </div>

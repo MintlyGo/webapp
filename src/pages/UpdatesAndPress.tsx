@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Newspaper, TrendingUp, Award, Globe, Megaphone, Calendar, ArrowRight, ExternalLink, BookOpen } from "lucide-react";
 
-export default function Newsroom() {
+export default function UpdatesAndPress() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -10,10 +10,10 @@ export default function Newsroom() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               MintlyGo{' '}
-              <span className="text-[#00ffff]">News & Media Hub</span>
+              <span className="text-[#00ffff]">Updates & Press</span>
             </h1>
             <p className="text-xl text-gray-200 mb-12">
-              Your central destination for MintlyGo updates, press resources, and company developments.
+              Your source for company updates, press releases, and media resources from MintlyGo.
             </p>
           </div>
         </div>

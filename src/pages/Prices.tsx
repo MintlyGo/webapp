@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
-import { Search, ChevronUp, ChevronDown } from 'lucide-react';
+import { Search, ChevronUp, ChevronDown, Sparkles, TrendingUp, LineChart, ArrowUpRight, Wallet, BarChart3, CandlestickChart, Gem, CircleDollarSign } from 'lucide-react';
+import "../styles/animations.css";
 
 interface CryptoData {
   id: string;
@@ -266,142 +267,228 @@ export default function Prices() {
   };
 
   return (
-    <div className="container mx-auto py-8 space-y-6">
-      {/* Quick Stats Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Trending Cryptos */}
-        <Card className="border-0 shadow-lg bg-gradient-to-br from-teal-50 to-white">
-          <CardHeader className="border-b border-teal-100">
-            <CardTitle className="text-xl font-bold text-teal-900">Trending Cryptos</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {trendingCryptos.map((crypto) => (
-                <div key={crypto.id} 
-                  className="flex items-center justify-between p-2 hover:bg-teal-50/50 rounded-lg transition-colors duration-200">
-                  <div className="flex items-center gap-3">
-                    <img src={crypto.image} alt={crypto.name} className="w-8 h-8" />
-                    <div>
-                      <div className="font-medium text-teal-900">{crypto.name}</div>
-                      <div className="text-sm text-teal-600 uppercase">{crypto.symbol}</div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-medium text-teal-800">${crypto.current_price.toLocaleString()}</div>
-                    <div className={crypto.price_change_percentage_24h >= 0 ? 'text-emerald-500' : 'text-red-500'}>
-                      {crypto.price_change_percentage_24h.toFixed(2)}%
-                    </div>
-                  </div>
-                </div>
-              ))}
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 py-16 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+        </div>
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
+        
+        <div className="container mx-auto px-8 relative z-10">
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="inline-block mb-6">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 w-fit animate-fade-in">
+                <CandlestickChart className="h-5 w-5 text-[#00ffff]" />
+                <span className="text-white/90">Real-Time Market Data</span>
+              </div>
             </div>
-          </CardContent>
-        </Card>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up">
+              Live Cryptocurrency
+              <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"> Market Prices</span>
+            </h1>
+            <p className="text-lg text-gray-200 max-w-2xl animate-fade-in-up delay-100">
+              Track real-time cryptocurrency prices, market caps, and trading volumes. Stay informed with live updates and market trends.
+            </p>
+          </div>
 
-        {/* Top Movers */}
-        <Card className="border-0 shadow-lg bg-gradient-to-br from-teal-50 to-white">
-          <CardHeader className="border-b border-teal-100">
-            <CardTitle className="text-xl font-bold text-teal-900">Top Movers</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {topMovers.map((crypto) => (
-                <div key={crypto.id} 
-                  className="flex items-center justify-between p-2 hover:bg-teal-50/50 rounded-lg transition-colors duration-200">
-                  <div className="flex items-center gap-3">
-                    <img src={crypto.image} alt={crypto.name} className="w-8 h-8" />
-                    <div>
-                      <div className="font-medium text-teal-900">{crypto.name}</div>
-                      <div className="text-sm text-teal-600 uppercase">{crypto.symbol}</div>
-                    </div>
+          {/* Quick Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+            {[
+              { icon: <CircleDollarSign className="h-5 w-5" />, label: "Total Market Cap", value: "$2.1T" },
+              { icon: <BarChart3 className="h-5 w-5" />, label: "24h Volume", value: "$98.5B" },
+              { icon: <Gem className="h-5 w-5" />, label: "Active Coins", value: "2,547" },
+              { icon: <TrendingUp className="h-5 w-5" />, label: "Markets", value: "12,875" }
+            ].map((stat, index) => (
+              <div key={index} 
+                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 
+                  transform hover:scale-105 transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-white/10 rounded-lg text-cyan-300">
+                    {stat.icon}
                   </div>
-                  <div className="text-right">
-                    <div className="font-medium text-teal-800">${crypto.current_price.toLocaleString()}</div>
-                    <div className={crypto.price_change_percentage_24h >= 0 ? 'text-emerald-500' : 'text-red-500'}>
-                      {crypto.price_change_percentage_24h.toFixed(2)}%
-                    </div>
+                  <div>
+                    <p className="text-sm text-gray-300">{stat.label}</p>
+                    <p className="text-xl font-semibold text-white">{stat.value}</p>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-8 -mt-8 relative z-20 space-y-8">
+        {/* Market Overview Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Trending Cryptos */}
+          <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-xl hover:bg-white/90 transition-all duration-300">
+            <CardHeader className="border-b border-gray-100 pb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-primary-50 rounded-lg">
+                  <TrendingUp className="h-6 w-6 text-primary-600" />
+                </div>
+                <CardTitle className="text-xl font-bold text-gray-900">Trending Cryptos</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                {trendingCryptos.map((crypto) => (
+                  <div key={crypto.id} 
+                    className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-xl transition-all duration-300 group cursor-pointer">
+                    <div className="flex items-center gap-4">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-primary-100 rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                        <img src={crypto.image} alt={crypto.name} className="w-10 h-10 relative z-10" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900">{crypto.name}</div>
+                        <div className="text-sm text-gray-500 uppercase">{crypto.symbol}</div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-semibold text-gray-900">${crypto.current_price.toLocaleString()}</div>
+                      <div className={`flex items-center gap-1 ${crypto.price_change_percentage_24h >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                        {crypto.price_change_percentage_24h >= 0 ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        {Math.abs(crypto.price_change_percentage_24h).toFixed(2)}%
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Top Movers */}
+          <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-xl hover:bg-white/90 transition-all duration-300">
+            <CardHeader className="border-b border-gray-100 pb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-50 rounded-lg">
+                  <LineChart className="h-6 w-6 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl font-bold text-gray-900">Top Movers</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                {topMovers.map((crypto) => (
+                  <div key={crypto.id} 
+                    className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-xl transition-all duration-300 group cursor-pointer">
+                    <div className="flex items-center gap-4">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-blue-100 rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                        <img src={crypto.image} alt={crypto.name} className="w-10 h-10 relative z-10" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900">{crypto.name}</div>
+                        <div className="text-sm text-gray-500 uppercase">{crypto.symbol}</div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-semibold text-gray-900">${crypto.current_price.toLocaleString()}</div>
+                      <div className={`flex items-center gap-1 ${crypto.price_change_percentage_24h >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                        {crypto.price_change_percentage_24h >= 0 ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        {Math.abs(crypto.price_change_percentage_24h).toFixed(2)}%
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Main Crypto Table */}
+        <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-xl hover:bg-white/90 transition-all duration-300">
+          <CardHeader className="border-b border-gray-100">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-emerald-50 rounded-lg">
+                    <Wallet className="h-6 w-6 text-emerald-600" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-900">All Cryptocurrencies</CardTitle>
+                </div>
+                <div className="relative w-full md:w-[300px] group">
+                  <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <Search className="h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Search for assets"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent bg-gray-50/50 placeholder-gray-500 transition-all duration-300"
+                  />
+                </div>
+              </div>
+              
+              {/* Filter Tabs */}
+              <div className="flex flex-wrap gap-2">
+                {FILTER_OPTIONS.map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => setActiveFilter(option.value)}
+                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300
+                      ${activeFilter === option.value
+                        ? 'bg-primary-600 text-white shadow-lg shadow-primary-100 scale-105'
+                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:scale-105'
+                      }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow className="border-b border-gray-100">
+                    <TableHead className="text-gray-600 font-medium">Asset</TableHead>
+                    <TableHead className="text-gray-600 font-medium">Symbol</TableHead>
+                    <SortableHeader field="price">Price</SortableHeader>
+                    <SortableHeader field="price_change_24h">24hr Change</SortableHeader>
+                    <SortableHeader field="price_change_percentage_24h">% Change</SortableHeader>
+                    <SortableHeader field="market_cap">Market Cap</SortableHeader>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredData.map((crypto) => (
+                    <TableRow key={crypto.id} 
+                      className="border-b border-gray-50 hover:bg-gray-50/50 transition-all duration-300 group cursor-pointer">
+                      <TableCell className="flex items-center gap-3">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gray-100 rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                          <img src={crypto.image} alt={crypto.name} className="w-8 h-8 relative z-10" />
+                        </div>
+                        <span className="font-medium text-gray-900">{crypto.name}</span>
+                      </TableCell>
+                      <TableCell className="uppercase text-gray-500 font-medium">{crypto.symbol}</TableCell>
+                      <TableCell className="font-medium text-gray-900">${crypto.current_price.toLocaleString()}</TableCell>
+                      <TableCell className={crypto.price_change_24h >= 0 ? 'text-emerald-500 font-medium' : 'text-red-500 font-medium'}>
+                        ${Math.abs(crypto.price_change_24h).toLocaleString()}
+                      </TableCell>
+                      <TableCell className={`flex items-center gap-1 ${crypto.price_change_percentage_24h >= 0 ? 'text-emerald-500' : 'text-red-500'} font-medium`}>
+                        {crypto.price_change_percentage_24h >= 0 ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        {Math.abs(crypto.price_change_percentage_24h).toFixed(2)}%
+                      </TableCell>
+                      <TableCell className="font-medium text-gray-900">
+                        {formatMarketCap(crypto.market_cap)}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </CardContent>
         </Card>
       </div>
-
-      {/* Main Crypto Table */}
-      <Card className="border-0 shadow-lg bg-white">
-        <CardHeader className="border-b border-teal-100">
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <CardTitle className="text-2xl font-bold text-teal-900">All Cryptocurrencies</CardTitle>
-              <div className="relative w-full md:w-[300px]">
-                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                  <Search className="h-5 w-5 text-teal-400" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search for assets"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-teal-200 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent bg-teal-50/50 placeholder-teal-900"
-                />
-              </div>
-            </div>
-            
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap gap-2">
-              {FILTER_OPTIONS.map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => setActiveFilter(option.value)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                    ${activeFilter === option.value
-                      ? 'bg-gradient-to-r from-teal-600 to-teal-500 text-white shadow-md shadow-teal-200'
-                      : 'bg-teal-50 text-teal-700 hover:bg-teal-100'
-                    }`}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow className="border-b border-teal-100">
-                <TableHead className="text-teal-700">Asset</TableHead>
-                <TableHead className="text-teal-700">Symbol</TableHead>
-                <SortableHeader field="price">Price</SortableHeader>
-                <SortableHeader field="price_change_24h">24hr Change</SortableHeader>
-                <SortableHeader field="price_change_percentage_24h">% Change</SortableHeader>
-                <SortableHeader field="market_cap">Market Cap</SortableHeader>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredData.map((crypto) => (
-                <TableRow key={crypto.id} className="border-b border-teal-50 hover:bg-teal-50/30 transition-colors duration-200">
-                  <TableCell className="flex items-center gap-2 text-teal-900">
-                    <img src={crypto.image} alt={crypto.name} className="w-6 h-6" />
-                    {crypto.name}
-                  </TableCell>
-                  <TableCell className="uppercase text-teal-600">{crypto.symbol}</TableCell>
-                  <TableCell className="text-teal-800">${crypto.current_price.toLocaleString()}</TableCell>
-                  <TableCell className={crypto.price_change_24h >= 0 ? 'text-emerald-500' : 'text-red-500'}>
-                    ${Math.abs(crypto.price_change_24h).toLocaleString()}
-                  </TableCell>
-                  <TableCell className={crypto.price_change_percentage_24h >= 0 ? 'text-emerald-500' : 'text-red-500'}>
-                    {crypto.price_change_percentage_24h.toFixed(2)}%
-                  </TableCell>
-                  <TableCell className="text-teal-800">
-                    {formatMarketCap(crypto.market_cap)}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
     </div>
   );
 } 

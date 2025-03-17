@@ -1,14 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
+import AppLayout from "./components/custom/AppLayout";
 import Home from "./pages/Home";
 import Payments from "./pages/Payments";
 import Prices from "./pages/Prices";
 import About from "./pages/About";
 import Team from "./pages/Team";
-import TrustCenter from "./pages/TrustCenter";
-import Cryptopedia from "./pages/Cryptopedia";
-import Newsroom from "./pages/Newsroom";
+import SecurityHub from "./pages/SecurityHub";
+import LearningHub from "./pages/LearningHub";
+import NewsAndMediaHub from "./pages/NewsAndMediaHub";
 import Support from "./pages/Support";
-import AppLayout from "./components/custom/AppLayout";
+import Wallet from "./pages/Wallet";
+import GuestHome from "./pages/GuestHome";
 
 export const router = createBrowserRouter(
   [
@@ -17,14 +19,16 @@ export const router = createBrowserRouter(
       element: <AppLayout />,
       children: [
         { path: "/", element: <Home /> },
+        { path: "/credit-card", element: <GuestHome /> },
         { path: "/pay", element: <Payments /> },
         { path: "/prices", element: <Prices /> },
         { path: "/about", element: <About /> },
         { path: "/team", element: <Team /> },
-        { path: "/trust-center", element: <TrustCenter /> },
-        { path: "/cryptopedia", element: <Cryptopedia /> },
-        { path: "/newsroom", element: <Newsroom /> },
+        { path: "/security-hub", element: <SecurityHub /> },
+        { path: "/learn", element: <LearningHub /> },
+        { path: "/news", element: <NewsAndMediaHub /> },
         { path: "/support", element: <Support /> },
+        { path: "/wallet", element: <Wallet /> },
       ],
     },
   ],
