@@ -4,7 +4,6 @@ import realTime from "../assets/real-time-exchange-rates.png";
 import rewards from "../assets/crypto-wallet.png";
 import creditCardVisa from "../assets/final_credit_card_prev_ui.png";
 import { Sparkles, Shield, Wallet, ArrowRight, CreditCard } from "lucide-react";
-import Footer from "../components/custom/Footer";
 
 const GuestHome = () => {
   return (
@@ -189,8 +188,6 @@ const GuestHome = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
