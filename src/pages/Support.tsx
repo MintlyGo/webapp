@@ -1,5 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Search, MessageCircle, Phone, Mail, Clock, ArrowRight, ChevronDown, FileText, Shield, CreditCard, Wallet } from "lucide-react";
+import {
+  Search,
+  MessageCircle,
+  Phone,
+  Mail,
+  Clock,
+  ArrowRight,
+  ChevronDown,
+  Shield,
+  CreditCard,
+  Wallet,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function Support() {
@@ -14,14 +25,14 @@ export default function Support() {
         {
           id: "card-1",
           q: "How do I activate my MintlyGo card?",
-          a: "Once you receive your card, log into your MintlyGo account, navigate to Card Services, and follow the activation steps. You'll need your card number and the security code."
+          a: "Once you receive your card, log into your MintlyGo account, navigate to Card Services, and follow the activation steps. You'll need your card number and the security code.",
         },
         {
           id: "card-2",
           q: "What are the card spending limits?",
-          a: "Default limits are set based on your account tier. You can view and adjust your limits in the Card Settings section of your dashboard, subject to verification requirements."
-        }
-      ]
+          a: "Default limits are set based on your account tier. You can view and adjust your limits in the Card Settings section of your dashboard, subject to verification requirements.",
+        },
+      ],
     },
     {
       id: "wallet",
@@ -31,14 +42,14 @@ export default function Support() {
         {
           id: "wallet-1",
           q: "How do I add funds to my wallet?",
-          a: "You can add funds through bank transfer, card payment, or by depositing cryptocurrency. Go to your Wallet section and click 'Add Funds' to see all available options."
+          a: "You can add funds through bank transfer, card payment, or by depositing cryptocurrency. Go to your Wallet section and click 'Add Funds' to see all available options.",
         },
         {
           id: "wallet-2",
           q: "What cryptocurrencies are supported?",
-          a: "We currently support major cryptocurrencies including Bitcoin, Ethereum, and selected stablecoins. Check the Wallet section for the complete list of supported assets."
-        }
-      ]
+          a: "We currently support major cryptocurrencies including Bitcoin, Ethereum, and selected stablecoins. Check the Wallet section for the complete list of supported assets.",
+        },
+      ],
     },
     {
       id: "security",
@@ -48,15 +59,15 @@ export default function Support() {
         {
           id: "security-1",
           q: "How do I enable 2FA?",
-          a: "Go to Security Settings in your account, select '2FA Setup', and follow the instructions to set up authentication using your preferred method (SMS or authenticator app)."
+          a: "Go to Security Settings in your account, select '2FA Setup', and follow the instructions to set up authentication using your preferred method (SMS or authenticator app).",
         },
         {
           id: "security-2",
           q: "What should I do if I suspect unauthorized activity?",
-          a: "Immediately lock your card in the app, change your password, and contact our 24/7 support team. We'll help secure your account and investigate any suspicious activity."
-        }
-      ]
-    }
+          a: "Immediately lock your card in the app, change your password, and contact our 24/7 support team. We'll help secure your account and investigate any suspicious activity.",
+        },
+      ],
+    },
   ];
 
   return (
@@ -66,11 +77,11 @@ export default function Support() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              How can we{' '}
-              <span className="text-[#00ffff]">help you?</span>
+              How can we <span className="text-[#00ffff]">help you?</span>
             </h1>
             <p className="text-xl text-gray-200 mb-12">
-              Get the support you need, when you need it. We're here to help 24/7.
+              Get the support you need, when you need it. We're here to help
+              24/7.
             </p>
             <div className="relative max-w-2xl mx-auto">
               <input
@@ -97,7 +108,8 @@ export default function Support() {
                   </div>
                   <h3 className="text-xl font-semibold mb-3">Live Chat</h3>
                   <p className="text-gray-600 mb-4">
-                    Connect instantly with our support team for real-time assistance.
+                    Connect instantly with our support team for real-time
+                    assistance.
                   </p>
                   <button className="inline-flex items-center text-blue-600 hover:text-blue-700">
                     Start Chat
@@ -131,9 +143,10 @@ export default function Support() {
                   </div>
                   <h3 className="text-xl font-semibold mb-3">Email Support</h3>
                   <p className="text-gray-600 mb-4">
-                    Send us a detailed message and we'll respond within 24 hours.
+                    Send us a detailed message and we'll respond within 24
+                    hours.
                   </p>
-                  <a 
+                  <a
                     href="mailto:supprot@mintlygo.com"
                     className="inline-flex items-center text-purple-600 hover:text-purple-700"
                   >
@@ -152,7 +165,9 @@ export default function Support() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Frequently Asked Questions
+              </h2>
               <p className="text-xl text-gray-600">
                 Find quick answers to common questions about MintlyGo services.
               </p>
@@ -162,16 +177,27 @@ export default function Support() {
                 <div key={category.id} className="space-y-4">
                   <div className="flex items-center gap-2 mb-4">
                     {category.icon}
-                    <h3 className="text-xl font-semibold">{category.category}</h3>
+                    <h3 className="text-xl font-semibold">
+                      {category.category}
+                    </h3>
                   </div>
                   {category.questions.map((faq) => (
-                    <Card key={faq.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                    <Card
+                      key={faq.id}
+                      className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                    >
                       <CardContent className="p-6">
                         <button
                           className="w-full flex justify-between items-center"
-                          onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
+                          onClick={() =>
+                            setExpandedFaq(
+                              expandedFaq === faq.id ? null : faq.id
+                            )
+                          }
                         >
-                          <span className="font-medium text-gray-900">{faq.q}</span>
+                          <span className="font-medium text-gray-900">
+                            {faq.q}
+                          </span>
                           <ChevronDown
                             className={`h-5 w-5 text-gray-500 transition-transform ${
                               expandedFaq === faq.id ? "rotate-180" : ""
@@ -199,15 +225,20 @@ export default function Support() {
       <div className="py-20 bg-gradient-to-br from-primary-800 to-primary-900">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Need More Help?</h2>
+            <h2 className="text-3xl font-bold text-white mb-6">
+              Need More Help?
+            </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Submit a support ticket and our team will get back to you as soon as possible.
+              Submit a support ticket and our team will get back to you as soon
+              as possible.
             </p>
             <Card className="border-0 shadow-xl">
               <CardContent className="p-8">
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Subject
+                    </label>
                     <input
                       type="text"
                       placeholder="Brief description of your issue"
@@ -215,7 +246,9 @@ export default function Support() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Message
+                    </label>
                     <textarea
                       rows={4}
                       placeholder="Describe your issue in detail"
@@ -240,11 +273,14 @@ export default function Support() {
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-center gap-4 text-gray-600">
               <Clock className="h-5 w-5" />
-              <span>Our support team is available 24/7 to assist you with any questions or concerns</span>
+              <span>
+                Our support team is available 24/7 to assist you with any
+                questions or concerns
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-} 
+}

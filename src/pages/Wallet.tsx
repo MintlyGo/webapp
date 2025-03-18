@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wallet, Shield, Zap, ArrowRight, Coins, Sparkles } from "lucide-react";
+import { Shield, Zap, ArrowRight, Coins, Sparkles } from "lucide-react";
 
 export default function WalletPage() {
   return (
@@ -19,15 +19,21 @@ export default function WalletPage() {
             <div className="inline-block mb-6">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
                 <Sparkles className="h-5 w-5 text-[#00ffff]" />
-                <span className="text-white/90">Next-Generation Crypto Wallet</span>
+                <span className="text-white/90">
+                  Next-Generation Crypto Wallet
+                </span>
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Your Crypto, Your Control with{' '}
-              <span className="bg-gradient-to-r from-cyan-300 to-cyan-500 text-transparent bg-clip-text">MintlyGo Wallet</span>
+              Your Crypto, Your Control with{" "}
+              <span className="bg-gradient-to-r from-cyan-300 to-cyan-500 text-transparent bg-clip-text">
+                MintlyGo Wallet
+              </span>
             </h1>
             <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
-              A secure, non-custodial wallet that puts you in control of your crypto assets while making spending as simple as using a traditional card.
+              A secure, non-custodial wallet that puts you in control of your
+              crypto assets while making spending as simple as using a
+              traditional card.
             </p>
             <Button className="bg-[#00ffff] text-primary-900 hover:bg-[#00ffff]/90 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               Coming Soon
@@ -48,9 +54,12 @@ export default function WalletPage() {
                   <div className="h-12 w-12 bg-teal-100 rounded-xl flex items-center justify-center transform rotate-3">
                     <Shield className="h-6 w-6 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">Non-Custodial Security</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Non-Custodial Security
+                  </h3>
                   <p className="text-gray-600">
-                    Maintain complete control of your private keys and assets. Your crypto stays in your hands, always.
+                    Maintain complete control of your private keys and assets.
+                    Your crypto stays in your hands, always.
                   </p>
                 </CardContent>
               </Card>
@@ -61,9 +70,12 @@ export default function WalletPage() {
                   <div className="h-12 w-12 bg-cyan-100 rounded-xl flex items-center justify-center transform -rotate-3">
                     <Zap className="h-6 w-6 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">Instant Transactions</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Instant Transactions
+                  </h3>
                   <p className="text-gray-600">
-                    Seamlessly spend your crypto at millions of locations worldwide with instant conversion and zero delays.
+                    Seamlessly spend your crypto at millions of locations
+                    worldwide with instant conversion and zero delays.
                   </p>
                 </CardContent>
               </Card>
@@ -74,9 +86,12 @@ export default function WalletPage() {
                   <div className="h-12 w-12 bg-blue-100 rounded-xl flex items-center justify-center transform rotate-3">
                     <Coins className="h-6 w-6 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">Multi-Asset Support</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Multi-Asset Support
+                  </h3>
                   <p className="text-gray-600">
-                    Store and manage multiple cryptocurrencies in one secure location with full integration into MintlyGo services.
+                    Store and manage multiple cryptocurrencies in one secure
+                    location with full integration into MintlyGo services.
                   </p>
                 </CardContent>
               </Card>
@@ -105,7 +120,9 @@ export default function WalletPage() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end p-6">
-                    <p className="text-white text-lg font-medium">Dashboard Overview</p>
+                    <p className="text-white text-lg font-medium">
+                      Dashboard Overview
+                    </p>
                   </div>
                 </div>
 
@@ -119,7 +136,9 @@ export default function WalletPage() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end p-6">
-                    <p className="text-white text-lg font-medium">Asset Management</p>
+                    <p className="text-white text-lg font-medium">
+                      Asset Management
+                    </p>
                   </div>
                 </div>
 
@@ -133,7 +152,9 @@ export default function WalletPage() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end p-6">
-                    <p className="text-white text-lg font-medium">Recieve/Send Crypto</p>
+                    <p className="text-white text-lg font-medium">
+                      Recieve/Send Crypto
+                    </p>
                   </div>
                 </div>
               </div>
@@ -158,14 +179,18 @@ export default function WalletPage() {
                 Seamlessly Integrated with MintlyGo
               </h2>
               <p className="text-xl text-gray-600">
-                Your wallet is the foundation of your crypto journey, perfectly integrated with all MintlyGo services.
+                Your wallet is the foundation of your crypto journey, perfectly
+                integrated with all MintlyGo services.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-12">
               <div className="space-y-6 bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <h3 className="text-2xl font-semibold text-gray-900">Direct Card Payments</h3>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Direct Card Payments
+                </h3>
                 <p className="text-gray-600">
-                  Connect your wallet directly to your MintlyGo card for seamless crypto-to-fiat payments anywhere cards are accepted.
+                  Connect your wallet directly to your MintlyGo card for
+                  seamless crypto-to-fiat payments anywhere cards are accepted.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center text-gray-600 bg-gray-50 p-3 rounded-lg">
@@ -183,9 +208,13 @@ export default function WalletPage() {
                 </ul>
               </div>
               <div className="space-y-6 bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <h3 className="text-2xl font-semibold text-gray-900">Complete Control</h3>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Complete Control
+                </h3>
                 <p className="text-gray-600">
-                  Manage your crypto assets with confidence, knowing you have full control over your funds while enjoying the convenience of traditional payment methods.
+                  Manage your crypto assets with confidence, knowing you have
+                  full control over your funds while enjoying the convenience of
+                  traditional payment methods.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center text-gray-600 bg-gray-50 p-3 rounded-lg">
@@ -208,4 +237,4 @@ export default function WalletPage() {
       </div>
     </div>
   );
-} 
+}
