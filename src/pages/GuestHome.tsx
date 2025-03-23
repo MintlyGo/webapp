@@ -20,35 +20,44 @@ const GuestHome = () => {
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600/30 via-transparent to-primary-900/30"></div>
         
-        <div className="container mx-auto px-4 py-20 md:py-32 relative z-20">
-          <div className="flex flex-col items-center text-center">
-            <div className="inline-block mb-6">
+        <div className="container relative z-10 mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8">
+          <div className="hero-content flex flex-col gap-8">
+            <div className="inline-block">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 w-fit">
                 <Sparkles className="h-5 w-5 text-[#00ffff]" />
-                <span className="text-white/90">Welcome to MintlyGo</span>
+                <span className="text-white/90">Next-Generation Card</span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              The Future of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-cyan-100">
-                Digital Finance
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Revolutionize</span>
+              <br /><span className="text-emerald-300">Your Payments with Crypto!</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8">
-              Experience seamless cryptocurrency transactions, payments, and secure digital asset management all in one place.
+            <p className="text-lg md:text-xl text-green-800 max-w-xl font-medium">
+              Pay your bills with the cryptocurrency of your choice – directly
+              from your wallet. No exchanges, no hassles, just seamless
+              transactions.
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md mx-auto">
+            <div className="hero-cta flex flex-wrap gap-6 items-center">
               <button 
                 onClick={() => setIsWaitlistOpen(true)}
-                className="w-full sm:w-auto px-6 py-3 text-base rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-300 text-primary-900 font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
+                className="group px-8 py-4 text-base rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-600 text-white hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105"
               >
-                Join Waitlist
+                Get Waitlisted Now
+                <ArrowRight className="inline-block ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="#learn-more" className="text-base text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+              <a href="#" className="text-base text-gray-300 hover:text-white transition-colors flex items-center gap-2">
                 Learn More
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
+          </div>
+          <div className="hero-img relative flex justify-center perspective-1000">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 blur-3xl rounded-full"></div>
+            <img
+              src={creditCardVisa}
+              alt="credit-img"
+              className="relative max-w-full rounded-2xl rotate-[10deg] hover:rotate-0 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/30"
+            />
           </div>
         </div>
       </section>
