@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { Globe, Users, Newspaper, HelpCircle, BookOpen, Building2, ChevronDown, ArrowRight } from 'lucide-react';
+import { Globe, Users, Newspaper, HelpCircle, BookOpen, Building2, ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 import WaitlistDialog from "./WaitlistDialog";
 
 type HeaderProps = {
@@ -13,6 +13,7 @@ const Header: React.FC<HeaderProps> = ({ openDialog }) => {
   const navigate = useNavigate();
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
@@ -177,48 +178,132 @@ const Header: React.FC<HeaderProps> = ({ openDialog }) => {
   return (
     <header className="bg-primary-800 py-4 px-4 relative z-40 border-b border-primary-700/50">
       {isAuthenticated && (
-        <div className="container mx-auto px-4 text-white flex justify-between items-center">
-          <div className="company-logo">
-            <Link to="/" className="text-2xl font-bold">MintlyGo</Link>
-          </div>
-          <div className="hidden md:flex items-center gap-12">
-            <nav>
-              <ul className="flex gap-6 text-sm lg:text-base h-8 items-center">
-                <li className="h-full flex items-center">
-                  <Link to="/">Card Services</Link>
-                </li>
-                <li className="h-full flex items-center">
-                  <Link to="/wallet">Wallet</Link>
-                </li>
-                <li className="h-full flex items-center">
-                  <Link to="/prices">Prices</Link>
-                </li>
-                <li className="h-full flex items-center">
-                  <ResourcesDropdown />
-                </li>
-              </ul>
-            </nav>
-            <div className="CTA flex gap-6">
-              <button
-                onClick={() => {
-                  logout();
-                  navigate("/");
-                }}
-                className="px-4 py-2 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-700"
-              >
-                Logout
-              </button>
+        <div className="container mx-auto px-4 text-white">
+          <div className="flex justify-between items-center">
+            <div className="company-logo">
+              <Link to="/" className="text-2xl font-bold">MintlyGo</Link>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 hover:bg-primary-700 rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-12">
+              <nav>
+                <ul className="flex gap-6 text-sm lg:text-base h-8 items-center">
+                  <li className="h-full flex items-center">
+                    <Link to="/">Card Services</Link>
+                  </li>
+                  <li className="h-full flex items-center">
+                    <Link to="/wallet">Wallet</Link>
+                  </li>
+                  <li className="h-full flex items-center">
+                    <Link to="/prices">Prices</Link>
+                  </li>
+                  <li className="h-full flex items-center">
+                    <ResourcesDropdown />
+                  </li>
+                </ul>
+              </nav>
+              <div className="CTA flex gap-6">
+                <button
+                  onClick={() => {
+                    logout();
+                    navigate("/");
+                  }}
+                  className="px-4 py-2 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-700"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={`
+              fixed inset-x-0 top-[73px] bg-primary-800 border-t border-primary-700/50
+              transition-transform duration-300 ease-in-out md:hidden
+              ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}
+            `}>
+              <div className="container mx-auto px-4 py-4">
+                <nav className="flex flex-col gap-4">
+                  <Link 
+                    to="/credit-card"
+                    className="text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Credit Card
+                  </Link>
+                  <Link 
+                    to="/wallet"
+                    className="text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Wallet
+                  </Link>
+                  <Link 
+                    to="/prices"
+                    className="text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Prices
+                  </Link>
+                  <button
+                    className="text-left text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsResourcesOpen(!isResourcesOpen);
+                    }}
+                  >
+                    Resources
+                  </button>
+                </nav>
+                <div className="mt-4 flex flex-col gap-3">
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      logout();
+                      navigate("/");
+                    }}
+                    className="w-full px-4 py-2 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-700 text-white"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
 
       {!isAuthenticated && (
-        <>
-          <div className="container mx-auto px-4 text-white flex justify-between items-center">
+        <div className="container mx-auto px-4 text-white">
+          <div className="flex justify-between items-center">
             <div className="company-logo">
               <Link to="/" className="text-2xl font-bold">MintlyGo</Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 hover:bg-primary-700 rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-12">
               <nav>
                 <ul className="flex gap-6 text-sm lg:text-base h-8 items-center">
@@ -247,7 +332,7 @@ const Header: React.FC<HeaderProps> = ({ openDialog }) => {
                 </button>
                 <button 
                   onClick={() => setIsWaitlistOpen(true)}
-                  className="px-4 py-2 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-700"
+                  className="px-4 py-2 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-700 whitespace-nowrap"
                 >
                   Join Waitlist
                 </button>
@@ -275,8 +360,92 @@ const Header: React.FC<HeaderProps> = ({ openDialog }) => {
                 </div>
               </div>
             </div>
+
+            {/* Mobile Menu */}
+            <div className={`
+              fixed inset-x-0 top-[73px] bg-primary-800 border-t border-primary-700/50
+              transition-transform duration-300 ease-in-out md:hidden
+              ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}
+            `}>
+              <div className="container mx-auto px-4 py-4">
+                <nav className="flex flex-col gap-4">
+                  <Link 
+                    to="/credit-card"
+                    className="text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Credit Card
+                  </Link>
+                  <Link 
+                    to="/wallet"
+                    className="text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Wallet
+                  </Link>
+                  <Link 
+                    to="/prices"
+                    className="text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Prices
+                  </Link>
+                  <button
+                    className="text-left text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsResourcesOpen(!isResourcesOpen);
+                    }}
+                  >
+                    Resources
+                  </button>
+                </nav>
+                <div className="mt-4 flex flex-col gap-3">
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      openDialog();
+                    }}
+                    className="w-full px-4 py-2 text-sm lg:text-base rounded-2xl hover:bg-primary-700 transition-colors text-white text-left"
+                  >
+                    Sign in
+                  </button>
+                  <button 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsWaitlistOpen(true);
+                    }}
+                    className="w-full px-4 py-2 text-sm lg:text-base rounded-2xl bg-primary-600 hover:bg-primary-700 text-white"
+                  >
+                    Join Waitlist
+                  </button>
+                  <div className="flex items-center gap-4 py-2 px-4">
+                    <a 
+                      href="https://x.com/mintlygo" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-primary-300 transition-colors duration-200"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href="https://t.me/mintlygo" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-primary-300 transition-colors duration-200"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </>
+        </div>
       )}
 
       <WaitlistDialog
