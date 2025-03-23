@@ -4,8 +4,12 @@ import realTime from "../assets/real-time-exchange-rates.png";
 import rewards from "../assets/crypto-wallet.png";
 import creditCardVisa from "../assets/final_credit_card_prev_ui.png";
 import { Sparkles, Shield, Wallet, ArrowRight, CreditCard } from "lucide-react";
+import { useState } from "react";
+import WaitlistDialog from "@/components/custom/WaitlistDialog";
 
 const GuestHome = () => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
   return (
     <div className="guest-home w-full">
       <section className="hero relative min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 overflow-hidden">
@@ -34,8 +38,11 @@ const GuestHome = () => {
               transactions.
             </p>
             <div className="hero-cta flex flex-wrap gap-6 items-center">
-              <button className="group px-8 py-4 text-base rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-600 text-white hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105">
-                Get Your Card Now
+              <button 
+                onClick={() => setIsWaitlistOpen(true)}
+                className="group px-8 py-4 text-base rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-600 text-white hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105"
+              >
+                Get Waitlisted Now
                 <ArrowRight className="inline-block ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
               <a href="#" className="text-base text-gray-300 hover:text-white transition-colors flex items-center gap-2">
@@ -81,35 +88,46 @@ const GuestHome = () => {
               {
                 img: secureWallet,
                 icon: <Shield className="h-6 w-6 text-primary-600" />,
-                title: "Secure Wallet Integration",
+                title: "Secure Wallet",
                 desc: "Connect your crypto wallet effortlessly and make payments with complete security and transparency.",
               },
               {
                 img: realTime,
                 icon: <Wallet className="h-6 w-6 text-primary-600" />,
-                title: "Real-Time Exchange Rates",
-                desc: "Get the competitive exchange rates for your crypto in real time. Every transaction is clear and upfront.",
+                title: "Exchange Rates",
+                desc: "Get the competitive exchange rates for your crypto. Every transaction is clear and upfront.",
               },
             ].map((benefit, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-100"
+                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-100 relative overflow-hidden"
               >
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-primary-100 rounded-2xl transform -rotate-6 group-hover:rotate-3 transition-transform"></div>
-                  <div className="relative bg-white rounded-2xl p-4 flex items-center justify-center">
-                    <img
-                      src={benefit.img}
-                      alt={benefit.title}
-                      className="w-20 h-20 object-contain"
-                    />
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-50/50 rounded-full blur-2xl transform translate-x-16 -translate-y-16 group-hover:translate-x-8 transition-transform duration-500"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-50/50 rounded-full blur-2xl transform -translate-x-16 translate-y-16 group-hover:-translate-x-8 transition-transform duration-500"></div>
+                
+                {/* Content */}
+                <div className="relative">
+                  <div className="relative mb-8">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-cyan-50 rounded-2xl transform -rotate-6 group-hover:rotate-3 transition-transform duration-500"></div>
+                    <div className="relative bg-white rounded-2xl p-4 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
+                      <img
+                        src={benefit.img}
+                        alt={benefit.title}
+                        className="w-20 h-20 object-contain"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-primary-50 rounded-lg transform group-hover:scale-110 transition-transform duration-300">
+                        {benefit.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 whitespace-nowrap">{benefit.title}</h3>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">{benefit.desc}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 mb-4">
-                  {benefit.icon}
-                  <h3 className="text-xl font-semibold text-gray-900">{benefit.title}</h3>
-                </div>
-                <p className="text-gray-600">{benefit.desc}</p>
               </div>
             ))}
           </div>
@@ -134,8 +152,11 @@ const GuestHome = () => {
                 soon as you make a purchase. Watch your rewards grow and benefit
                 from potential price appreciation.
               </p>
-              <button className="group px-6 py-3 text-base rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-all duration-300 flex items-center gap-2">
-                Start Earning Now
+              <button 
+                onClick={() => setIsWaitlistOpen(true)}
+                className="group px-6 py-3 text-base rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-all duration-300 flex items-center gap-2"
+              >
+                Get Waitlisted Now
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
@@ -158,21 +179,24 @@ const GuestHome = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
               <div className="flex-1 text-center md:text-left space-y-6">
                 <h3 className="text-6xl font-extrabold text-primary-600">
-                  $100
+                  
                 </h3>
                 <p className="text-gray-600 text-lg">
                   Exclusive offer for first-time customers!
                 </p>
                 <div className="space-y-4">
                   <h2 className="text-3xl font-bold text-gray-900">
-                    New Mintly Customers
+                    New MintlyGo Customers
                   </h2>
                   <p className="text-xl text-gray-600">
                     Open a Mintly Credit account with qualifying activities.
                   </p>
                 </div>
-                <button className="group px-8 py-4 text-base rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-all duration-300 flex items-center gap-2 mx-auto md:mx-0">
-                  Apply Now
+                <button 
+                  onClick={() => setIsWaitlistOpen(true)}
+                  className="group px-8 py-4 text-base rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-all duration-300 flex items-center gap-2 mx-auto md:mx-0"
+                >
+                  Get Waitlisted Now
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
@@ -188,6 +212,10 @@ const GuestHome = () => {
           </div>
         </div>
       </section>
+      <WaitlistDialog
+        isOpen={isWaitlistOpen}
+        onClose={() => setIsWaitlistOpen(false)}
+      />
     </div>
   );
 };

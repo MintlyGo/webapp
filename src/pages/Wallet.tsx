@@ -90,7 +90,7 @@ export default function WalletPage() {
                     Multi-Asset Support
                   </h3>
                   <p className="text-gray-600">
-                    Store and manage multiple cryptocurrencies in one secure
+                    Store and manage multiple cryptocurrencies in one
                     location with full integration into MintlyGo services.
                   </p>
                 </CardContent>

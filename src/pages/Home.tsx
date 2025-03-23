@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Sparkles, Shield, Wallet, CreditCard, ExternalLink } from "lucide-react";
+import { ArrowRight, Sparkles, Shield, Wallet, CreditCard, ExternalLink, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import Toast from "@/components/ui/Toast";
+import { submitWaitlistEmail } from "@/lib/api";
+
+interface ToastState {
+  message: string;
+  type: 'success' | 'error';
+}
 
 const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<ToastState | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -16,6 +26,35 @@ const Home = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await submitWaitlistEmail(email);
+      
+      if (response.success) {
+        setToast({
+          type: 'success',
+          message: 'Thank you for joining our waitlist! We\'ll keep you updated.',
+        });
+        setEmail('');
+      } else {
+        setToast({
+          type: 'error',
+          message: response.message,
+        });
+      }
+    } catch (error) {
+      setToast({
+        type: 'error',
+        message: 'Failed to join waitlist. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Custom X (Twitter) icon component
   const XIcon = () => (
@@ -63,14 +102,45 @@ const Home = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mb-8">
-              Experience seamless cryptocurrency transactions, smart investments, and secure digital asset management all in one place.
+              Experience seamless cryptocurrency transactions, payments, and secure digital asset management all in one place.
             </p>
-            <Link to="/credit-card">
-              <button className="group px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 text-primary-900 font-semibold hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 transform hover:scale-105">
-                Get Started
-                <ArrowRight className="inline-block ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            <form onSubmit={handleWaitlistSubmit} className="flex w-full max-w-md gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="satoshi@mintlygo.com"
+                className="flex-1 px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
+                required
+                disabled={isSubmitting}
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-300 text-primary-900 font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105 hover:translate-x-1 relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Joining...
+                    </>
+                  ) : (
+                    'Join Waitlist'
+                  )}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-cyan-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-cyan-200/30 blur-md transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               </button>
-            </Link>
+            </form>
+
+            {toast && (
+              <Toast
+                message={toast.message}
+                type={toast.type}
+                onClose={() => setToast(null)}
+              />
+            )}
           </div>
         </div>
       </section>

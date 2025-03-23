@@ -55,6 +55,21 @@ export default {
         },
         customGray: "rgb(76, 85, 102)",
       },
+      keyframes: {
+        'dialog-slide-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-20px) scale(0.95)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0) scale(1)',
+          }
+        }
+      },
+      animation: {
+        'dialog-slide-in': 'dialog-slide-in 0.3s ease-out forwards',
+      }
     },
   },
   plugins: [
