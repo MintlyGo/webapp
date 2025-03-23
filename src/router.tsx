@@ -32,5 +32,8 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { future: { v7_fetcherPersist: true } }
+  { 
+    basename: "/webapp",
+    future: { v7_fetcherPersist: true } 
+  }
 );
