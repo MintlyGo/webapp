@@ -9,8 +9,7 @@ type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ openDialog }) => {
-  const { isAuthenticated, logout } = useAuth();
-  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
