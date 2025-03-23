@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import AppLayout from "./components/custom/AppLayout";
 import Home from "./pages/Home";
 import Payments from "./pages/Payments";
@@ -12,7 +12,7 @@ import Support from "./pages/Support";
 import Wallet from "./pages/Wallet";
 import GuestHome from "./pages/GuestHome";
 
-export const router = createBrowserRouter(
+export const router = createHashRouter(
   [
     {
       path: "/",
@@ -32,8 +32,5 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { 
-    basename: "/webapp",
-    future: { v7_fetcherPersist: true } 
-  }
+  { future: { v7_fetcherPersist: true } }
 );
