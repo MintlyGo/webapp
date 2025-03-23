@@ -5,7 +5,7 @@ import { useLoginDialog } from "@/hooks/useDialog";
 import { LoginDialog } from "./Dialog";
 
 const AppLayout = () => {
-  const { isOpen, openDialog, closeDialog } = useLoginDialog();
+  const { isOpen, closeDialog } = useLoginDialog();
 
   return (
     <div className="flex flex-col min-h-screen">
