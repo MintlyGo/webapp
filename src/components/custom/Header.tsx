@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Globe, Users, Newspaper, HelpCircle, BookOpen, Building2, ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 import WaitlistDialog from "./WaitlistDialog";
