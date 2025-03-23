@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Sparkles, Shield, Wallet, CreditCard, ExternalLink, Loader2 } from "lucide-react";
+import { Sparkles, Shield, Wallet, CreditCard, ExternalLink, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import Toast from "@/components/ui/Toast";

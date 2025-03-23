@@ -7,7 +7,7 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw6VmY9IUktZV
 
 export const submitWaitlistEmail = async (email: string): Promise<WaitlistResponse> => {
   try {
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
+    await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors', // Required for Google Apps Script
       headers: {

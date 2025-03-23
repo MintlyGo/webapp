@@ -25,7 +25,7 @@ export default function About() {
             </div>
             
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight text-center">
-              We are committed to unlocking a new era of{' '}
+              Unlocking a new era of{' '}
               <span className="text-[#00ffff] font-medium">financial empowerment</span>,{' '}
               <span className="text-[#00ffff] font-medium">creative expression</span> and{' '}
               <span className="text-[#00ffff] font-medium">personal growth</span>.
