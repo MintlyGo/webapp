@@ -102,7 +102,7 @@ const Home = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mb-8">
-              Experience seamless cryptocurrency transactions, payments, and secure digital asset management all in one place.
+              Seamless cryptocurrency transactions, payments, and secure digital asset management all in one place.
             </p>
             <form onSubmit={handleWaitlistSubmit} className="flex w-full max-w-md gap-2">
               <input
@@ -168,7 +168,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Crypto Credit Card</h3>
                 <p className="text-gray-600">
-                  Experience the future of crypto payments with MitlyGo credit card. 
+                  Experience the future of crypto payments with the MitlyGo credit card. 
                 </p>
               </div>
             </Link>
