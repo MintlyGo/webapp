@@ -11,6 +11,7 @@ import NewsAndMediaHub from "./pages/NewsAndMediaHub";
 import Support from "./pages/Support";
 import Wallet from "./pages/Wallet";
 import GuestHome from "./pages/GuestHome";
+import TransactionHistory from "./pages/TransactionHistory";
 
 export const router = createHashRouter(
   [
@@ -20,6 +21,7 @@ export const router = createHashRouter(
       children: [
         { path: "/", element: <Home /> },
         { path: "/credit-card", element: <GuestHome /> },
+        { path: "/transactions", element: <TransactionHistory /> },
         { path: "/pay", element: <Payments /> },
         { path: "/prices", element: <Prices /> },
         { path: "/about", element: <About /> },

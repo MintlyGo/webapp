@@ -25,7 +25,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
   useEffect(() => {
     if (isAuthenticated) {
       onClose();
-      navigate("/");
+      navigate("/transactions");
     }
   }, [isAuthenticated, onClose, navigate]);
 

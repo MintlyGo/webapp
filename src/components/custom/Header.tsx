@@ -3,11 +3,13 @@ import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Globe, Users, Newspaper, HelpCircle, BookOpen, Building2, ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
 import WaitlistDialog from "./WaitlistDialog";
+import { LoginDialog } from "./Dialog";
 
 const Header = () => {
   const { isAuthenticated, logout } = useAuth();
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
@@ -367,9 +369,7 @@ const Header = () => {
               </nav>
               <div className="CTA flex items-center gap-4">
                 <button
-                  onClick={() => {
-                    openDialog();
-                  }}
+                  onClick={() => setIsLoginOpen(true)}
                   className="text-sm lg:text-base"
                 >
                   Sign in
@@ -492,7 +492,7 @@ const Header = () => {
                   <div className="flex flex-col gap-4 mt-4">
                     <button
                       onClick={() => {
-                        openDialog();
+                        setIsLoginOpen(true);
                         setIsMobileMenuOpen(false);
                       }}
                       className="text-white hover:text-primary-300 py-2 text-lg text-left"
@@ -541,6 +541,10 @@ const Header = () => {
       <WaitlistDialog
         isOpen={isWaitlistOpen}
         onClose={() => setIsWaitlistOpen(false)}
+      />
+      <LoginDialog
+        isOpen={isLoginOpen}
+        closeDialog={() => setIsLoginOpen(false)}
       />
     </header>
   );
