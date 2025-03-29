@@ -35,9 +35,7 @@ const Header = () => {
     };
   }, []);
 
-  const openDialog = () => {
-    navigate("/auth");
-  };
+
 
   const ResourcesDropdown = () => {
     const navigate = useNavigate();
