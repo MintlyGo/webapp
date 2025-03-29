@@ -168,7 +168,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Crypto Credit Card</h3>
                 <p className="text-gray-600">
-                  Experience the future of crypto payments with the MitlyGo credit card. 
+                  Experience seamless and direct cryptocurrency payments with the MitlyGo credit card. 
                 </p>
               </div>
             </Link>
@@ -181,7 +181,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Crypto Wallet</h3>
                 <p className="text-gray-600">
-                  A comprehensive digital wallet solution for managing all your cryptocurrency assets.
+                  A comprehensive digital wallet linked to the MintlyGo card for managing all your cryptocurrency assets.
                 </p>
               </div>
             </Link>
