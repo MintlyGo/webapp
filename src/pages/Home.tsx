@@ -104,7 +104,7 @@ const Home = () => {
             <p className="text-xl text-gray-200 max-w-2xl mb-8">
               Seamless cryptocurrency transactions, payments, and secure digital asset management all in one place.
             </p>
-            <form onSubmit={handleWaitlistSubmit} className="flex w-full max-w-md gap-2">
+            <form onSubmit={handleWaitlistSubmit} className="flex w-full max-w-md gap-3">
               <input
                 type="email"
                 value={email}
@@ -117,9 +117,9 @@ const Home = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-300 text-primary-900 font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105 hover:translate-x-1 relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
+                className="whitespace-nowrap min-w-[140px] px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-300 text-primary-900 font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center justify-center gap-2">
                   {isSubmitting ? (
                     <>
                       <Loader2 className="h-5 w-5 animate-spin" />
@@ -130,7 +130,6 @@ const Home = () => {
                   )}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-cyan-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-cyan-200/30 blur-md transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               </button>
             </form>
 
