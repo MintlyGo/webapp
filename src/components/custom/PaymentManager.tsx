@@ -20,7 +20,9 @@ const PaymentManager = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      navigate("/", { state: { amountDue: 0, availableLimit: 2000 } }); // Navigate to home page
+      navigate("/transactions", {
+        state: { amountDue: 0, availableLimit: 2000 },
+      }); // Navigate to home page
     }, 1000); // 1-second delay
   };
 
