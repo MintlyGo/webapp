@@ -96,9 +96,9 @@ const Home = () => {
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              The Future of{' '}
+              Your Financial Future is<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-cyan-100">
-                Digital Finance
+                Digital, Secure, and Simplified
               </span>
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mb-8">

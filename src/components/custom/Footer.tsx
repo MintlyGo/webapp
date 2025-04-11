@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-white">MintlyGo</h2>
-            <p className="text-gray-400">Simplify your finances, embrace the future.</p>
+            <p className="text-gray-400">Your Financial Future is Digital, Secure, and Simplified</p>
             <div className="flex items-center space-x-4 pt-2">
               <a 
                 href="https://x.com/mintlygo?s=11"
@@ -38,7 +38,7 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
             </div>
-            <p className="text-sm text-gray-500">© 2025 Mintly. All Rights Reserved.</p>
+            <p className="text-sm text-gray-500">© 2025 MintlyGo. All Rights Reserved.</p>
           </div>
 
           {/* Products */}
