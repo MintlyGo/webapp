@@ -93,12 +93,12 @@ export default function Newsroom() {
                     <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
                     <span className="text-sm font-medium text-green-600">Development Update</span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Upcoming MintlyGo Card Features</h3>
+                  <h3 className="text-xl font-semibold mb-3">Upcoming MintlyGo wallet Features</h3>
                   <p className="text-gray-600 mb-4">
-                    Preview of enhanced security features and rewards program coming to MintlyGo card users.
+                    Preview of enhanced security features coming to MintlyGo wallet users.
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Coming Q2 2024</span>
+                    <span className="text-sm text-gray-500">Coming Q42025</span>
                     <button className="text-primary-600 hover:text-primary-700">Read More</button>
                   </div>
                 </CardContent>
@@ -111,12 +111,12 @@ export default function Newsroom() {
                     <Globe className="h-5 w-5 text-blue-600 mr-2" />
                     <span className="text-sm font-medium text-blue-600">Expansion Plans</span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Southeast Asia Expansion Strategy</h3>
+                  <h3 className="text-xl font-semibold mb-3">Upcoming MintlyGo Card Features</h3>
                   <p className="text-gray-600 mb-4">
-                    Exploring partnerships and preparing for launch in key Southeast Asian markets.
+                  review of premium features and rewards program coming to MintlyGo card users.
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Planned for Q3 2024</span>
+                    <span className="text-sm text-gray-500">Coming Q4 2025</span>
                     <button className="text-primary-600 hover:text-primary-700">Read More</button>
                   </div>
                 </CardContent>

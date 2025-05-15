@@ -152,7 +152,7 @@ export default function SecurityHub() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-6">Asset Protection</h2>
               <p className="text-xl text-gray-600">
-                Your assets are protected by comprehensive insurance coverage and robust security measures.
+                Your assets are protected by secure wallets and robust security measures.
               </p>
             </div>
             <Card className="border-0 shadow-xl bg-white">
@@ -180,7 +180,7 @@ export default function SecurityHub() {
                     <ul className="space-y-4">
                       <li className="flex items-center text-gray-600">
                         <Lock className="h-5 w-5 text-primary-600 mr-3" />
-                        Segregated user accounts
+                        Non-custodial accounts
                       </li>
                       <li className="flex items-center text-gray-600">
                         <Lock className="h-5 w-5 text-primary-600 mr-3" />
@@ -210,7 +210,7 @@ export default function SecurityHub() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-6">
                 <div className="text-4xl font-bold text-primary-600 mb-4">100%</div>
-                <p className="text-gray-600">Asset Backed Reserve</p>
+                <p className="text-gray-600">On-chain Transparency</p>
               </div>
               <div className="p-6">
                 <div className="text-4xl font-bold text-primary-600 mb-4">24/7</div>

@@ -6,7 +6,7 @@ export default function Team() {
     {
       name: "Chief Executive Officer",
       role: "Chief Executive Officer",
-      bio: "With over 15 years in fintech and blockchain, our CEO leads MintlyGo's vision of making crypto payments accessible to everyone.",
+      bio: "",
       social: {
         linkedin: "#",
         twitter: "#"
@@ -15,7 +15,7 @@ export default function Team() {
     {
       name: "Chief Technology Officer",
       role: "Chief Technology Officer",
-      bio: "Former Silicon Valley tech lead, our CTO brings extensive experience in blockchain security and scalable architecture.",
+      bio: "",
       social: {
         linkedin: "#",
         github: "#"
@@ -24,7 +24,7 @@ export default function Team() {
     {
       name: "Chief Product Officer",
       role: "Chief Product Officer",
-      bio: "With deep background in UX design and crypto products, our CPO helps shape MintlyGo's user-friendly approach to digital payments.",
+      bio: "",
       social: {
         linkedin: "#",
         twitter: "#"
